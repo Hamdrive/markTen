@@ -26,8 +26,8 @@ function App() {
   }
 
   function checkAmt(){
-    if(billAmt <= custAmt){
-      var difference = custAmt - billAmt;
+    var difference = custAmt - billAmt;
+    if(billAmt <= custAmt && difference >= 0){
       calculateNotes(difference);
       showMessage("Give the following denominations to the customer")
     } else {
