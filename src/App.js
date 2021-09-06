@@ -97,15 +97,15 @@ function App() {
             </tr>
             <tr>
               <th>Denominations</th>
-              <td>2000</td>
-              <td>500</td>
-              <td>200</td>
-              <td>100</td>
-              <td>50</td>
-              <td>20</td>
-              <td>10</td>
-              <td>5</td>
-              <td>1</td>
+              <td>₹ 2000</td>
+              <td>₹ 500</td>
+              <td>₹ 200</td>
+              <td>₹ 100</td>
+              <td>₹ 50</td>
+              <td>₹ 20</td>
+              <td>₹ 10</td>
+              <td>₹ 5</td>
+              <td>₹ 1</td>
             </tr>
           </tbody>
         </table>
