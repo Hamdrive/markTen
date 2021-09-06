@@ -1,19 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 var notesAvailable = ["2000", "500", "200", "100", "50", "20", "10", "5", "1"];
-var billAmt, custAmt;
-var noOfNotes = document.getElementsByClassName("notes");
-var placeMessage = document.getElementById("message")
+var billAmt, custAmt, noOfNotes, placeMessage;
 
 function App() {
 
   const [showSecondInput, setshowSecondInput] = useState(false);
-  const [buttonText, setbuttonText] = useState("Next");
+
+  useEffect(() => {
+    noOfNotes = document.querySelectorAll(".notes");
+    placeMessage = document.querySelector(".message");
+  }, [])
 
   function handleBillEntry(e){
     billAmt = e.target.value;
-    if(!billAmt){
+    if(!billAmt || billAmt < 1){
       setshowSecondInput(false)
     } else {
       setshowSecondInput(true)
@@ -24,16 +26,15 @@ function App() {
   }
 
   function checkAmt(){
-    placeMessage.style.display = "none";
-    if(billAmt > 0){
-      if(custAmt >= billAmt){
-        var difference = custAmt - billAmt;
-        calculateNotes(difference);
-      } else {
-        showMessage("I'm afraid you cannot afford these items")
+    if(billAmt <= custAmt){
+      var difference = custAmt - billAmt;
+      calculateNotes(difference);
+      showMessage("Give the following denominations to the customer")
+    } else {
+      showMessage("I'm afraid you cannot afford these items")
+      for(var i = 0; i < noOfNotes.length ; i++){
+        noOfNotes[i].innerHTML = "-";
       }
-    }else{
-      showMessage("Enter a real bill amount")
     }
   }
 
@@ -51,11 +52,12 @@ function App() {
       return (
         <div className="customer-cash">
           <label htmlFor="cash-given">Cash Given:</label>
-          <input type="number" className="cash-given" onChange={(e) => handleCustEntry(e)}></input>
+          <input type="number" className="cash-given" min="0" onChange={(e) => handleCustEntry(e)}></input>
           <button className="notes-btn" onClick={checkAmt}>Check</button>
         </div>
       )
     }
+    return ;
   }
 
   function showMessage(message){
@@ -72,10 +74,10 @@ function App() {
       </div>
       <div className="bill-entry">
         <label htmlFor="bill-amount">Bill Amount:</label>
-        <input type="number" className="bill-amount" onChange={(e) => handleBillEntry(e)}></input>
+        <input type="number" className="bill-amount" min="0" onChange={(e) => handleBillEntry(e)}></input>
       </div>
       { showSecondInput ? <CustomerCash /> : null }
-      <div id="message">
+      <div className="message">
         <p></p>
       </div>
       <div className="notes-returned">
@@ -83,15 +85,15 @@ function App() {
           <tbody>
             <tr>
               <th>No. of Notes</th>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
-              <td className="notes"></td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
+              <td className="notes">-</td>
             </tr>
             <tr>
               <th>Denominations</th>
