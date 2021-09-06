@@ -53,7 +53,7 @@ function App() {
         <div className="customer-cash">
           <label htmlFor="cash-given">Cash Given:</label>
           <input type="number" className="cash-given" min="0" onChange={(e) => handleCustEntry(e)}></input>
-          <button className="notes-btn" onClick={checkAmt}>Check</button>
+          <button className="notes-btn" onClick={checkAmt}>Get Change</button>
         </div>
       )
     }
