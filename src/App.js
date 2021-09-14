@@ -44,7 +44,7 @@ function App() {
   }
 
   function calculateNotes(diff){
-    notesTable.style.display = "block"
+    notesTable.style.display = "flex"
     var amtLeft = diff;
     for(var i = 0; i < notesAvailable.length ; i++){
       var noteCount = Math.trunc(amtLeft / notesAvailable[i]);
