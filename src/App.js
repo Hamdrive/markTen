@@ -12,6 +12,7 @@ function App() {
     noOfNotes = document.querySelectorAll(".notes");
     placeMessage = document.querySelector(".message");
     notesTable = document.querySelector(".notes-returned")
+    notesTable.style.display = "none"
   }, [])
 
   function handleBillEntry(e){
@@ -36,10 +37,8 @@ function App() {
       calculateNotes(difference);
       showMessage("Give the following denominations to the customer")
     } else {
-      showMessage("I'm afraid you cannot afford these items")
-      for(var i = 0; i < noOfNotes.length ; i++){
-        noOfNotes[i].innerHTML = "-";
-      }
+      showMessage("Customer cannot afford the items, send him back!")
+      notesTable.style.display = "none"
     }
   }
 
