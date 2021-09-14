@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 var notesAvailable = ["2000", "500", "200", "100", "50", "20", "10", "5", "1"];
-var billAmt, custAmt, noOfNotes, placeMessage;
+var billAmt, custAmt, noOfNotes, placeMessage, notesTable;
 
 function App() {
 
@@ -11,10 +11,11 @@ function App() {
   useEffect(() => {
     noOfNotes = document.querySelectorAll(".notes");
     placeMessage = document.querySelector(".message");
+    notesTable = document.querySelector(".notes-returned")
   }, [])
 
   function handleBillEntry(e){
-    billAmt = e.target.value;
+    billAmt = Number(e.target.value);
     if(!billAmt || billAmt < 1){
       setshowSecondInput(false)
     } else {
@@ -22,12 +23,16 @@ function App() {
     }
   }
   function handleCustEntry(e){
-    custAmt = e.target.value;
+    custAmt = Number(e.target.value);
   }
 
   function checkAmt(){
     var difference = custAmt - billAmt;
-    if(billAmt <= custAmt && difference >= 0){
+
+    if (difference === 0){
+      showMessage("Customer has given exact change!")
+      notesTable.style.display = "none"
+    } else if(billAmt <= custAmt && difference >= 0){
       calculateNotes(difference);
       showMessage("Give the following denominations to the customer")
     } else {
@@ -39,6 +44,7 @@ function App() {
   }
 
   function calculateNotes(diff){
+    notesTable.style.display = "block"
     var amtLeft = diff;
     for(var i = 0; i < notesAvailable.length ; i++){
       var noteCount = Math.trunc(amtLeft / notesAvailable[i]);
