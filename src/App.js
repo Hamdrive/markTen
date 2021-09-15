@@ -115,6 +115,19 @@ function App() {
           </tbody>
         </table>
       </div>
+      <div class="bottom-container">
+      <div class="icons">
+        <a class="footer-link" rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/hamza-husein/"><i
+            class="fab fa-linkedin fa-2x"></i></a>
+        <a class="footer-link" rel="noreferrer" target="_blank" href="https://github.com/Hamdrive"><i
+            class="fab fa-github fa-2x"></i></a>
+        <a class="footer-link" rel="noreferrer" target="_blank" href="https://hamzahusein.netlify.app"><i 
+        class="fas fa-user fa-2x"></i></a>
+        <a class="footer-link" rel="noreferrer" target="_blank" href="https://twitter.com/itsHamhere"><i
+            class="fab fa-twitter-square fa-2x"></i></a>
+      </div>
+      <p class="copyright">© 2021 Hamza Husein</p>
+    </div>
     </div>
   );
 }

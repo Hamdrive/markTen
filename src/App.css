@@ -9,39 +9,43 @@
   flex-direction: column;
   font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #2a72f81e;
-  height: 100%;
+  height: 100vh;
 }
 
 .title{
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   line-height: 1.2;
+  margin-bottom: 5rem;
 }
 
 .main-title{
-  font-size: 40px;
-  margin-top: 30px;
+  font-size: 4rem;
+  padding: 1rem 0 2rem 0;
+  margin-top: 1rem;
   color: #2a72f8;
+  margin-bottom: auto;
 }
 
 .sub-title{
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 0.5rem;
   text-align: center;
+  margin-bottom: auto;
+
 }
 
 .bill-entry, .customer-cash{
   width: 100%;
-  height: 100%;
+  height: 5rem;
+  margin: 2rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 30px;
 }
 
 label{
@@ -53,6 +57,7 @@ label{
   border: 2px solid #2a72f8;
   border-radius: 10px;
   padding: 5px;
+  margin-bottom: 2rem;
 }
 
 .notes-returned{
@@ -60,6 +65,7 @@ label{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 2rem;
 }
 
 .notes-btn {
@@ -71,7 +77,6 @@ label{
   padding: 10px 20px 10px 20px;
   text-decoration: none;
   border: 2px solid #000000;
-  margin-top: 20px;
 }
 
 .notes-btn:hover {
@@ -82,7 +87,7 @@ label{
 
 .message{
   font-size: 25px;
-  margin-top: 30px;
+  margin: 3rem;
   text-align: center;
 }
 
@@ -102,4 +107,40 @@ td, th{
   padding: 20px;
   border: 2px solid #2a72f8;
   text-align: center;
+}
+
+.icons{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icons i{
+  margin: 0 2rem;
+  color: black;
+}
+
+.icons i:hover{
+  color: white;
+}
+
+.bottom-container{
+  background-color: #4684f8;
+  height: 100px;
+  width: 100%;
+  margin-top: auto;
+  padding: 1rem 0;
+}
+
+.footer-link{
+  font-size: 1rem;
+  display: inline-block;
+}
+
+.copyright{
+  color: black;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 0.5rem;
 }
